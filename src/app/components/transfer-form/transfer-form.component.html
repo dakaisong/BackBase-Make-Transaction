@@ -1,0 +1,36 @@
+
+<form [formGroup]="transferForm">
+    <div class="form-group">
+        <label>{{ 'global.from-account' | translate}}</label>
+        <input type="text" class="form-control" formControlName="fromAccount" readonly placeholder="Free Checking(4692) - ${{defaultAccountAmount}}">
+    </div>
+    <div class="form-group">
+        <label>{{ 'global.to-account' | translate}}</label>
+        <input type="text" formControlName="toAccount" class="form-control" placeholder="Georgia Power">
+        <div *ngIf="submitted && f.toAccount.errors" class="invalid-feedback">
+            <div *ngIf="f.toAccount.errors.required">To Account is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>{{ 'global.amount' | translate}}</label>
+        <input type="number" min="0" formControlName="amount" class="form-control" placeholder="$0.00">
+        <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+            <div *ngIf="f.amount.errors.required">Amount is required</div>
+            <div *ngIf="f.amount.errors.pattern">Amount need be number or great than 0</div>
+        </div>
+        <div class="invalid-feedback" *ngIf="overFlowError">Account number is less than -500</div>
+    </div>
+    <div style="text-align:right; margin-top:20px; margin-right:10px;">
+        <button style="margin-bottom: 20px; "  class="btn btn-warning" (click)="onSubmit()" type="submit" >{{ 'global.submit' | translate}}</button>
+    </div>
+</form>
+
+<jw-modal id="custom-modal-1">
+    <div class="modal-content">
+      <h3>Transaction Dailog</h3>
+      <h4>To Account: <span> {{transferForm.value['toAccount']}}</span> </h4>
+      <h4>Amount: {{transferForm.value['amount']}}</h4>
+      <button type="sumbit" class="btn btn-warning"(click)="submit()">submit</button>
+      <button type="sumbit" class="btn btn-error" (click)="close()">cancel</button>
+    </div>
+</jw-modal>

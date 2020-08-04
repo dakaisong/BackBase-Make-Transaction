@@ -1,0 +1,8 @@
+{
+    "global" : {
+        "from-account" : "du compte",
+        "to-account" : "estimer",
+        "amount" : "montante",
+        "submit" : "soumettre"
+    }
+}

@@ -1,0 +1,35 @@
+<div>
+    <div class="account-list">
+        <div class="row" >
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="search by typing..." [(ngModel)]="query" />
+                </div>
+            </div>
+            <div class="col-lg-1 col-md-2 col-sm-2">
+                <span> Sort by</span>
+            </div>
+            <div class="col-lg-5 col-md-10 col-sm-10">
+                <div class="buttonGroup">
+                    <div class="button" (click)="sort('transactionDate')">DATE</div>
+                    <div class="button" (click)="sort('merchant')">BENEFICIARY</div>
+                    <div class="button" (click)="sort('amount')">AMOUNT</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="account-list-content"> 
+        <ul class="list-group">
+            <li *ngFor="let item of data | search:'transactionType,merchant':query" [ngStyle]="{'border-left': '10px solid'+item.categoryCode}">
+                <div class="list-group-item">
+                    <small style="margin-right:20px; margin-left:15px;">{{item.transactionDate | date:'MMM d'}}</small>
+                    <img [src]="item.merchantLogo" class="gray" width="40px" style="margin-right:20px"/>
+                    <div class="wrap">
+                        <span><strong> {{item.merchant}} </strong> <br> {{item.transactionType}} </span>
+                    </div>
+                <h5 style="margin-left:auto; margin-right: 5px;" >{{-item.amount | currency}}</h5>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

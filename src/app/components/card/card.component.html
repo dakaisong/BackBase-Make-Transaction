@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-header">
+        <img
+        height="{{imageSize}}"
+        alt="Angular Logo"
+        src="{{imagePath}}"
+        />
+        <ng-container *ngIf="textSize === 'mid'">
+            <h3 style="text-align: center;">{{title}}</h3>
+        </ng-container>
+        <ng-container *ngIf="textSize === 'small'" >
+            <h4 style="text-align: center;">{{title}}</h4>
+        </ng-container>
+        <div></div>
+    </div>
+    <div class="card-body">
+        <ng-content></ng-content>
+    </div>
+</div>

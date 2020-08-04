@@ -1,0 +1,8 @@
+{
+    "global":{
+        "from-account" : "from account",
+        "to-account" : "to account",
+        "amount" : "amount",
+        "submit" : "submit"
+    }
+}

@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+<div class="content" role="main">
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-12">
+      <app-card title="Make a Transfer" imageSize="15" textSize="small" imagePath="../assets/images/arrows.png">
+        <div>
+          <app-transfer-form (showUp)="handleShowUp($event)"></app-transfer-form>
+        </div>
+      </app-card>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-12">
+      <app-card title="Recent Transactions"  imageSize="20" textSize="mid"  imagePath="../assets/images/briefcase.png">
+        <div>
+          <app-account-list [data]="transactionList$ | async "></app-account-list>
+        </div>
+      </app-card>
+    </div>
+  </div>
+</div>
+
+

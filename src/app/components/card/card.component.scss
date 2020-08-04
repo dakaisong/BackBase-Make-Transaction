@@ -1,0 +1,31 @@
+.card{
+    width: 100%;
+    height: auto;
+    background-color: white;
+
+    &-header{
+        font-size: 12px;
+        color: white;
+        background-color: #0c8397;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            margin:4px
+        }
+
+        h3 {
+            font-weight: normal;
+        }
+
+        h4 {
+            font-weight: normal;
+        }
+    }
+
+    &-body{
+        width: 100%;
+        height: auto;
+    }
+}
